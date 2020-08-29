@@ -10,7 +10,12 @@ async function fetchMovies(query) {
 async function fetchMovieAndDisplay(query) {
     const movies = await fetchMovies(query);
     console.log(movies)
+    displayMovieList(movies);
+}
 
+
+function displayMovieList(movies) {
+    console.log("These are the movies list", movies)
 }
 
 fetchMovieAndDisplay();
