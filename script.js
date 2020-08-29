@@ -6,25 +6,27 @@ async function fetchMovies(query) {
     const movieData = await fetch("https://ghibliapi.herokuapp.com/films");
     // convert it into object
     const data = movieData.json();
-    return data;
-    
+    console.log(data);
+    return data; // return the data
 }
 
 async function fetchMovieAndDisplay(query) {
     // call the function and wait for it to served
     const movies = await fetchMovies(query);
     console.log(movies)
-    // then display that value so that the value will turn into an html
+    // Sort the movies from the higher score to the least
     movies.sort(function(a, b) {
         return b.rt_score - a.rt_score;
-    })
+    });
+    // then display that value so that the value will turn into an html
     displayMovieList(movies);
     
 }
 
 
 function displayMovieList(movies) {
-    // loop through the list of film then create an html file for that
+    console.log('Movie list', movies)
+    // map through the list of film then create an html file for that
     const html = movies.map(movie => {
         return `
             <article class="movie" id="${movie.id}">
