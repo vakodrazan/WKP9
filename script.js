@@ -31,14 +31,17 @@ function displayMovieList(movies) {
         return `
             <article class="movie" id="${movie.id}">
                 <header>
-                    <h3>${movie.title}</h3>
-                    <time datetime="${movie.release_date}">${movie.release_date}</time>
-                    <small>${movie.rt_score}</small>
+                    <div class="heading">
+                        <h3>${movie.title}</h3>
+                        <time datetime="${movie.release_date}"><strong>Released date:</strong> ${movie.release_date}</time>
+                    </div>
+                    
+                    <small><strong>Score:</strong> ${movie.rt_score}</small>
                 </header>
                 <p class="description">${movie.description}</p>
                 <div class="crew">
-                    <span>${movie.director}</span>
-                    <span>${movie.producer}</span>
+                    <span class="director"><strong>Director:</strong> ${movie.director}</span>
+                    <span><strong>Producer:</strong> ${movie.producer}</span>
                 </div>
             </article>
         `;
