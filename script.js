@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-
+const searchMovie = document.querySelector('input#search');
 
 async function fetchMovies(query) {
     // fetch the data
@@ -23,11 +23,10 @@ async function fetchMovieAndDisplay(query) {
     
 }
 
-
-function displayMovieList(movies) {
-    console.log('Movie list', movies)
+// Create a function that will contains all the html so that I can use it again later
+const movieList = listOfMovie => {
     // map through the list of film then create an html file for that
-    const html = movies.map(movie => {
+    return listOfMovie.map(movie => {
         return `
             <article class="movie" id="${movie.id}">
                 <header>
@@ -46,8 +45,28 @@ function displayMovieList(movies) {
             </article>
         `;
     }).join("");
+
+}
+
+
+function displayMovieList(movies) {
+    // Call the function that I used before but use the parameter in it
+   const html = movieList(movies)
     // append it inside of the div container in the html file 
     container.innerHTML = html;
+
+    // nest a function that will the list when the user search for it
+    const searchInput = () => {
+        const input = searchMovie.value;
+        const searchByTitle = movies.filter(movie => movie.title.toLowerCase().includes(input.toLowerCase()));
+        // recall the function for the html using the filter variables as a parameter
+        const myHtml = movieList(searchByTitle);
+        container.innerHTML = myHtml;
+    }
+
+    // listen to a search event
+    searchMovie.addEventListener('input', searchInput);
 }
 
 fetchMovieAndDisplay();
+
