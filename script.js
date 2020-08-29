@@ -15,7 +15,26 @@ async function fetchMovieAndDisplay(query) {
 
 
 function displayMovieList(movies) {
-    console.log("These are the movies list", movies)
+    const html = movies.map(movie => {
+        return `
+            <article class="movie" id="${movie.id}">
+                <header>
+                    <h3>${movie.title}</h3>
+                    <small>${movie.release_date}</small>
+                    <p>${movie.rt_score}</p>
+                </header>
+                <div>
+                    <p>${movie.description}</p>
+                </div>
+                <div>
+                    <span>${movie.director}</span>
+                    <span>${movie.producer}</span>
+                </div>
+            </article>
+        `;
+    }).join("");
+
+    container.innerHTML = html;
 }
 
 fetchMovieAndDisplay();
