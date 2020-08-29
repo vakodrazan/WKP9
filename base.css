@@ -72,3 +72,12 @@ input {
 fieldset {
     border: none;
 }
+
+button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
