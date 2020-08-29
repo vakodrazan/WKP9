@@ -32,8 +32,8 @@ function displayMovieList(movies) {
             <article class="movie" id="${movie.id}">
                 <header>
                     <h3>${movie.title}</h3>
-                    <small>${movie.release_date}</small>
-                    <p>${movie.rt_score}</p>
+                    <time datetime="${movie.release_date}">${movie.release_date}</time>
+                    <small>${movie.rt_score}</small>
                 </header>
                 <p class="description">${movie.description}</p>
                 <div class="crew">
