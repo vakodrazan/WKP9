@@ -36,7 +36,7 @@ function displayMovieList(movies) {
                         <time datetime="${movie.release_date}"><strong>Released date:</strong> ${movie.release_date}</time>
                     </div>
                     
-                    <small><strong>Score:</strong> ${movie.rt_score}</small>
+                    <span><strong>Score:</strong> ${movie.rt_score}</span>
                 </header>
                 <p class="description">${movie.description}</p>
                 <div class="crew">
