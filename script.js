@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const searchMovie = document.querySelector('input#search');
+const resetBtn = document.querySelector('button.reset');
 
 async function fetchMovies(query) {
     // fetch the data
@@ -51,9 +52,14 @@ const movieList = listOfMovie => {
 
 function displayMovieList(movies) {
     // Call the function that I used before but use the parameter in it
-   const html = movieList(movies)
-    // append it inside of the div container in the html file 
-    container.innerHTML = html;
+    const listOfMovies = () => {
+        const html = movieList(movies);
+        // append it inside of the div container in the html file 
+        container.innerHTML = html;
+    }
+
+    listOfMovies();
+
 
     // nest a function that will the list when the user search for it
     const searchInput = () => {
@@ -64,9 +70,16 @@ function displayMovieList(movies) {
         container.innerHTML = myHtml;
     }
 
+    // reset the filter list
+    const handleResetBtn = () => {
+        listOfMovies();
+    }
+    resetBtn.addEventListener('click', handleResetBtn);
+
     // listen to a search event
     searchMovie.addEventListener('input', searchInput);
 }
+
 
 fetchMovieAndDisplay();
 
