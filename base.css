@@ -3,4 +3,60 @@ body {
     font-size: 16px;
     line-height: 1.5;
     background-color: rgb(219, 214, 214);
+    margin: 0;
+}
+
+body > header {
+    text-align: center;
+    background-color: indianred;
+    margin: auto;
+}
+h1 {
+     color: rgb(4, 63, 65);
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding-block-end: 1rem;
+}
+
+.content {
+    margin: auto;
+    max-width: 1000px;
+}
+
+.movie {
+    background-color: rgb(255, 251, 251);
+    padding: 2rem;
+    margin-block-end: 2rem;
+    border-radius: 10px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading h3 {
+    padding-inline-end: 1rem;
+}
+
+.movie > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-block-end: 1rem;
+}
+
+.director {
+    padding-inline-end: 1rem;
 }
