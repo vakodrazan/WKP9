@@ -68,3 +68,7 @@ input {
     border-radius: 3px;
     margin-block-end: 1rem;
 }
+
+fieldset {
+    border: none;
+}
