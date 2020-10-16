@@ -28293,23 +28293,38 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function Movie() {
-  const endpoint = `https://ghibliapi.herokuapp.com/films`;
-  console.log(endpoint); // const container = document.querySelector('.container');
+  const [movies, setMovies] = (0, _react.useState)([]);
 
-  return /*#__PURE__*/_react.default.createElement("article", {
-    className: "movie"
-  }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, "Hello", /*#__PURE__*/_react.default.createElement("small", {
-    className: "text_small"
-  }, "117"))), /*#__PURE__*/_react.default.createElement("p", null, "Movie"), /*#__PURE__*/_react.default.createElement("p", {
-    className: "score"
-  }, "Movie"), /*#__PURE__*/_react.default.createElement("p", {
-    className: "director"
-  }, "Movie"), /*#__PURE__*/_react.default.createElement("p", null, "Movie"));
+  async function fetchFilm() {
+    const response = await fetch("https://ghibliapi.herokuapp.com/films");
+    const data = await response.json();
+    setMovies(data);
+  }
+
+  (0, _react.useEffect)(() => {
+    fetchFilm();
+  }); // console.log(movies);
+  // const container = document.querySelector('.container');
+
+  return movies.map(movie => {
+    return /*#__PURE__*/_react.default.createElement("article", {
+      className: "movie",
+      key: movie.id
+    }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, movie.title, /*#__PURE__*/_react.default.createElement("small", {
+      className: "text_small"
+    }, movie.release_date))), /*#__PURE__*/_react.default.createElement("p", null, "Movie"), /*#__PURE__*/_react.default.createElement("p", {
+      className: "score"
+    }, movie.rt_score), /*#__PURE__*/_react.default.createElement("p", {
+      className: "director"
+    }, movie.description), /*#__PURE__*/_react.default.createElement("p", null, "Movie"));
+  });
 } // async function fetchFilm() {
 //     const response = await fetch(endpoint);
 //     const data = await response.json();

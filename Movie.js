@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Movie() {
-    const endpoint = `https://ghibliapi.herokuapp.com/films`;
-    console.log(endpoint);
+    const [movies, setMovies] = useState([])
+    
+    async function fetchFilm() {
+        const response = await fetch("https://ghibliapi.herokuapp.com/films");
+        const data = await response.json();
+        setMovies(data)
+    }
+
+    useEffect(() => {
+        fetchFilm();
+    })
+    
+    // console.log(movies);
     // const container = document.querySelector('.container');
 
     return (
-        <article className="movie">
-            <header>
-                <h3>Hello<small className="text_small">117</small></h3>
-            </header>
-            <p>Movie</p>
-            <p className="score">Movie</p>
-            <p className="director">Movie</p>
-            <p>Movie</p>
-        </article>
-    )
+        movies.map(movie => {
+            return (
+                <article className="movie" key={movie.id}>
+                    <header>
+                        <h3>{movie.title}<small className="text_small">{movie.release_date}</small></h3>
+                    </header>
+                    <p>Movie</p>
+                    <p className="score">{movie.rt_score}</p>
+                    <p className="director">{movie.description}</p>
+                    <p>Movie</p>
+                </article>
+            )
+    }))
+
 }
 
 
