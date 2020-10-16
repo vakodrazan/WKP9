@@ -1,51 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:400');
+
+/* TYPOGRAPHY */
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: rgb(219, 214, 214);
-    margin: 0;
+	background-color: #eebbc3;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	line-height: 1.65;
+	color: #232946;
+	padding: 1rem;
+	display: grid;
+	justify-items: center;
 }
+
 
 body > header {
     text-align: center;
     background-color: indianred;
     margin: auto;
 }
-h1 {
-     color: rgb(4, 63, 65);
-}
-
-h1,
-h2,
-h3 {
-    margin: 0;
-}
-
-p {
-    margin: 0;
-    padding-block-end: 1rem;
-}
-
 .content {
     margin: auto;
     max-width: 1000px;
 }
-
-.movie {
-    background-color: rgb(255, 251, 251);
-    padding: 2rem;
-    margin-block-end: 2rem;
-    border-radius: 10px;
-}
-
-.heading {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.heading h3 {
+h3 {
     padding-inline-end: 1rem;
 }
 
@@ -80,4 +58,107 @@ button {
     font-size: 1.2rem;
     border: 1px solid gray;
     border-radius: 3px;
+}
+
+
+
+p {
+	margin-bottom: 1.15rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 2rem 0 1.05rem;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 4.209em;
+}
+
+h2 {
+	font-size: 3.157em;
+}
+
+h3 {
+	font-size: 2.369em;
+}
+
+h4 {
+	font-size: 1.777em;
+}
+
+h5 {
+	font-size: 1.333em;
+}
+
+small,
+.text_small {
+	font-size: 0.5em;
+}
+
+/* LAYOUT  */
+
+.container {
+	display: grid;
+	grid-template-columns: minmax(200px, 1000px);
+	gap: 20px;
+}
+
+article header {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: baseline;
+}
+
+.score {
+	justify-self: end;
+	color: #d4939d;
+}
+
+article {
+	background: #fffffe;
+	padding: 1rem 2rem 1.5rem;
+	border-radius: 10px;
+	color: #232946;
+}
+
+footer {
+	padding: 1rem;
+}
+
+footer a {
+	text-decoration: none;
+	color: #fffffe;
+}
+
+.pill-container {
+	display: flex;
+}
+
+.pill-container svg {
+	width: 20px;
+	margin-right: 10px;
+	color: #d4939d;
+	margin-bottom: -4px;
+	margin-left: 10px;
+}
+
+.score {
+	display: grid;
+	grid-auto-flow: column;
+	align-items: center;
+}
+
+.score svg {
+	width: 20px;
+	margin-right: 5px;
+	margin-top: -2px;
+	display: inline;
 }
