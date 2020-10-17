@@ -28318,7 +28318,7 @@ function Movie() {
     return /*#__PURE__*/_react.default.createElement("article", {
       className: "movie",
       key: movie.id
-    }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, movie.title, /*#__PURE__*/_react.default.createElement("small", {
+    }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, movie.title, " ", /*#__PURE__*/_react.default.createElement("small", {
       className: "text_small"
     }, movie.release_date))), /*#__PURE__*/_react.default.createElement("p", null, movie.description), /*#__PURE__*/_react.default.createElement("p", {
       className: "score"
