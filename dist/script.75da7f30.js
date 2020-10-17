@@ -28313,45 +28313,20 @@ function Movie() {
   }); // console.log(movies);
   // const container = document.querySelector('.container');
 
-  return movies.map(movie => {
+  const sortedMovie = movies.sort((a, b) => b.rt_score - a.rt_score);
+  return sortedMovie.map(movie => {
     return /*#__PURE__*/_react.default.createElement("article", {
       className: "movie",
       key: movie.id
     }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, movie.title, /*#__PURE__*/_react.default.createElement("small", {
       className: "text_small"
-    }, movie.release_date))), /*#__PURE__*/_react.default.createElement("p", null, "Movie"), /*#__PURE__*/_react.default.createElement("p", {
+    }, movie.release_date))), /*#__PURE__*/_react.default.createElement("p", null, movie.description), /*#__PURE__*/_react.default.createElement("p", {
       className: "score"
     }, movie.rt_score), /*#__PURE__*/_react.default.createElement("p", {
       className: "director"
-    }, movie.description), /*#__PURE__*/_react.default.createElement("p", null, "Movie"));
+    }, movie.director), /*#__PURE__*/_react.default.createElement("p", null, "Movie"));
   });
-} // async function fetchFilm() {
-//     const response = await fetch(endpoint);
-//     const data = await response.json();
-//     return data;
-// }
-// async function populateMovie() {
-//     // get the data
-//     const movies = await fetchFilm();
-//     // sort the data
-//     const sortedMovie = movies.sort((a, b) => b.rt_score - a.rt_score);
-//     const html = sortedMovie.map(movie => {
-//         return `
-//             <article class="movie">
-//                 <header>
-//                     <h3>${movie.title} <small class="text_small">${movie.release_date}</small></h3>
-//                 </header>
-//                 <p>${movie.description}</p>
-//                 <p class="score">${movie.rt_score}</p>
-//                 <p class="director">${movie.director}</p>
-//                 <p>${movie.producer}</p>
-//             </article>
-//         `
-//     }).join('');
-//     container.innerHTML = html;
-// }
-// populateMovie();
-
+}
 
 var _default = Movie;
 exports.default = _default;
@@ -28415,7 +28390,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50879" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52202" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
