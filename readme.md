@@ -47,3 +47,15 @@ Good luck 💻
  - I can say that I finished everuthing that's been asked. This is my first day finishing the project till the end.
  - I create a search input to filter the movie we searched from the list by searching their title.
 
+
+## Report:
+
+ - In this project what we need to do is using react to for to create the whole website.
+ - It was great becuase it help me to be familiar with the fetching data from api using react.
+ I would say that using react is better because it save so much time when coding.
+
+### Project provided link:
+
+This is my github link [https://github.com/vakodrazan/WKP9](Demo)
+
+You can find my result in here [https://optimistic-kalam-1a9b79.netlify.app/](Ghibli-movie-solution)
