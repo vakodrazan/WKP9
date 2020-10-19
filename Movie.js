@@ -12,21 +12,24 @@ function Movie() {
     useEffect(() => {
         fetchFilm();
     })
-    
-    // console.log(movies);
-    // const container = document.querySelector('.container');
+
     const sortedMovie = movies.sort((a, b) => b.rt_score - a.rt_score);
     return (
         sortedMovie.map(movie => {
             return (
                 <article className="movie" key={movie.id}>
                     <header>
-                        <h3>{movie.title} <small className="text_small">{movie.release_date}</small></h3>
+                        <h3>{movie.title}</h3>
+                        <small className="text_small">{movie.release_date}</small>
                     </header>
                     <p>{movie.description}</p>
-                    <p className="score">{movie.rt_score}</p>
-                    <p className="director">{movie.director}</p>
-                    <p>Movie</p>
+                    <div className="movie__about">
+                        <p className="score">{movie.rt_score}</p>
+                        <p className="director">{movie.director}</p>
+                    </div>
+                    <footer>
+                        <p className="desc">Movie</p>
+                    </footer>
                 </article>
             )
         })
