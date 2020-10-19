@@ -28310,21 +28310,23 @@ function Movie() {
 
   (0, _react.useEffect)(() => {
     fetchFilm();
-  }); // console.log(movies);
-  // const container = document.querySelector('.container');
-
+  });
   const sortedMovie = movies.sort((a, b) => b.rt_score - a.rt_score);
   return sortedMovie.map(movie => {
     return /*#__PURE__*/_react.default.createElement("article", {
       className: "movie",
       key: movie.id
-    }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, movie.title, " ", /*#__PURE__*/_react.default.createElement("small", {
+    }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h3", null, movie.title), /*#__PURE__*/_react.default.createElement("small", {
       className: "text_small"
-    }, movie.release_date))), /*#__PURE__*/_react.default.createElement("p", null, movie.description), /*#__PURE__*/_react.default.createElement("p", {
+    }, movie.release_date)), /*#__PURE__*/_react.default.createElement("p", null, movie.description), /*#__PURE__*/_react.default.createElement("div", {
+      className: "movie__about"
+    }, /*#__PURE__*/_react.default.createElement("p", {
       className: "score"
     }, movie.rt_score), /*#__PURE__*/_react.default.createElement("p", {
       className: "director"
-    }, movie.director), /*#__PURE__*/_react.default.createElement("p", null, "Movie"));
+    }, movie.director)), /*#__PURE__*/_react.default.createElement("footer", null, /*#__PURE__*/_react.default.createElement("p", {
+      className: "desc"
+    }, "Movie")));
   });
 }
 
@@ -28390,7 +28392,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52202" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64787" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
