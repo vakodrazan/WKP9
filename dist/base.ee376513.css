@@ -152,4 +152,11 @@ article {
 	}
 }
 
+.isLoading {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 600;
+	color: rgb(17, 2, 117);
+}
+
 /*# sourceMappingURL=/base.ee376513.css.map */
