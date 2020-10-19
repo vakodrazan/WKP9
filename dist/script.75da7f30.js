@@ -28301,8 +28301,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function Movie() {
   const [movies, setMovies] = (0, _react.useState)([]);
-  const [isLoading, setIsLoading] = (0, _react.useState)(true);
-  console.log(isLoading);
 
   async function fetchFilm() {
     const response = await fetch("https://ghibliapi.herokuapp.com/films");
@@ -28312,12 +28310,11 @@ function Movie() {
 
   (0, _react.useEffect)(() => {
     fetchFilm();
-    setIsLoading(false);
   }, []);
   const sortedMovie = movies.sort((a, b) => b.rt_score - a.rt_score);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", {
+  return /*#__PURE__*/_react.default.createElement("div", null, movies.length === 0 && /*#__PURE__*/_react.default.createElement("p", {
     className: "isLoading"
-  }, isLoading && "Loading..."), sortedMovie.map(movie => {
+  }, "Loading..."), sortedMovie.map(movie => {
     return /*#__PURE__*/_react.default.createElement("article", {
       className: "movie",
       key: movie.id
